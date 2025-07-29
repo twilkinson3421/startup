@@ -8,7 +8,10 @@ interface MainClass {
 export function Main<TargetClass extends MainClass>(Target: TargetClass): TargetClass {
     addEventListener("load", async function (): Promise<void> {
         const result = await Target.main?.();
-        if (typeof result === "number") Deno.exitCode = result;
+        if (typeof result === "number") {
+            Deno.exitCode = result;
+            Deno.exit();
+        }
     });
     return Target;
 }

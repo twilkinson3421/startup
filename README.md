@@ -18,3 +18,17 @@ class Program {
     }
 }
 ```
+
+Return a number from the main function to set the exit code and exit the application.
+
+```ts
+import { Startup } from "@zerm/startup";
+
+@Startup.Main
+class Program {
+    main(): number {
+        console.log("Hello, world!");
+        return 1; // The program will exit with code 1 once the main function has exited
+    }
+}
+```
