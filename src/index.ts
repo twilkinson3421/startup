@@ -1,8 +1,8 @@
-type MainFn<R> = ((args: string[]) => R) | (() => R);
-
 /** Run the main function */
-export function Main<R>(main: MainFn<R>): typeof main {
-    const result = main(Deno.args);
+export function Main<Return>(method: () => Return): typeof method;
+export function Main<Return>(method: (args: string[]) => Return): typeof method;
+export function Main<Return>(method: (args: string[]) => Return): typeof method {
+    const result = method(Deno.args);
     if (typeof result === "number") Deno.exit(result);
-    return main;
+    return method;
 }

@@ -52,5 +52,5 @@
 
     "publish": { "exclude": [".gitignore", ".editorconfig", ".prettierrc", "deno.lock"] },
 
-    "version": "3.0.0"
+    "version": "3.0.1"
 }
